@@ -1,11 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. Theme.AppCompat.Light.NoActionBar-->
-    <style name="AppTheme" parent="MainAppTheme">
 
-
-    </style>
-
-    <style name="MainAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="MainAppTheme" parent="android:Theme.Material.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -16,16 +12,16 @@
         <item name="actionModeStyle">@style/ContextualTheme</item>
     </style>
 
-    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+    <style name="ToolbarTheme" parent="android:ThemeOverlay.Material.Light">
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/textColorPrimary</item>
     </style>
 
-    <style name="PopupTheme" parent="ThemeOverlay.AppCompat.Light">
+    <style name="PopupTheme" parent="android:ThemeOverlay.Material.Light">
         <item name="android:textColorPrimary">@color/textColorPrimaryDark</item>
     </style>
 
-    <style name="ContextualTheme" parent="@style/Widget.AppCompat.ActionMode">
+    <style name="ContextualTheme" parent="android:Widget.Material.ActionMode">
         <item name="background">@color/colorPrimary</item>
         <item name="titleTextStyle">@style/ContextTextStyle</item>
         <item name="subtitleTextStyle">@style/ContextTextStyle</item>
@@ -33,8 +29,7 @@
         <!--<item name="android:actionModeCloseDrawable">@drawable/ic_account_circle_black_24dp</item>-->
     </style>
 
-    <style name="ContextTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
+    <style name="ContextTextStyle" parent="android:TextAppearance.Material.Widget.ActionMode.Title">
         <item name="android:textColor">@color/textColorPrimary</item>
     </style>
-
 </resources>
