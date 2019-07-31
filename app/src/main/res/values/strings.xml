@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Champ Pool</string>
+    <string-array name="lanes">
+        <item>TOP</item>
+        <item>JUNGLE</item>
+        <item>MIDDLE</item>
+        <item>MARKSMAN</item>
+        <item>SUPPORT</item>
+    </string-array>
 </resources>
