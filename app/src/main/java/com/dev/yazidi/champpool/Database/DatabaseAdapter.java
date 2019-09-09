@@ -57,8 +57,52 @@ public class DatabaseAdapter {
         return null;
     }
 
-    public List<String> getPool(){
+    public List<Score> getTop5ByLane(String lane) {
+        List<Score> scores = new ArrayList<Score>();
+        String[] strings = {DatabaseCreator.SCORE_KEY_ID, DatabaseCreator.SCORE_KEY_CHAMPION, DatabaseCreator.SCORE_KEY_LANE, DatabaseCreator.SCORE_KEY_SCORE};
+        Cursor cursor = database.query(DatabaseCreator.SCORE_TABLE_NAME, strings, DatabaseCreator.SCORE_KEY_LANE + " = '" + lane + "'", null, null, null, DatabaseCreator.SCORE_KEY_SCORE, "5");
+        while (cursor.moveToNext()) {
+            scores.add(new Score(cursor.getLong(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3)));
+        }
+        return scores;
+    }
 
-        return null;
+    public List<String> getPool() {
+        List<Score> top = getTop5ByLane("TOP");
+        List<Score> jgl = getTop5ByLane("JUNGLE");
+        List<Score> mid = getTop5ByLane("MIDDLE");
+        List<Score> adc = getTop5ByLane("MARKSMAN");
+        List<Score> supp = getTop5ByLane("SUPPORT");
+
+        List<String> pool = new ArrayList<String>();
+
+        for (int i = 0; i < 5; i++) {
+            try {
+                pool.add(top.get(i).getChampion());
+            } catch (Exception e) {
+                pool.add("?");
+            }
+            try {
+                pool.add(jgl.get(i).getChampion());
+            } catch (Exception e) {
+                pool.add("?");
+            }
+            try {
+                pool.add(mid.get(i).getChampion());
+            } catch (Exception e) {
+                pool.add("?");
+            }
+            try {
+                pool.add(adc.get(i).getChampion());
+            } catch (Exception e) {
+                pool.add("?");
+            }
+            try {
+                pool.add(supp.get(i).getChampion());
+            } catch (Exception e) {
+                pool.add("?");
+            }
+        }
+        return pool;
     }
 }
