@@ -56,4 +56,9 @@ public class DatabaseAdapter {
         }
         return null;
     }
+
+    public List<String> getPool(){
+
+        return null;
+    }
 }
