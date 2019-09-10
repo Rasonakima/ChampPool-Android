@@ -50,12 +50,12 @@ public class ScoresActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(new ScoreAdapter(databaseAdapter.getAllScores()));
+        recyclerView.setAdapter(new ScoreAdapter(databaseAdapter.getAllScores(),this));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        recyclerView.setAdapter(new ScoreAdapter(databaseAdapter.getAllScores()));
+        recyclerView.setAdapter(new ScoreAdapter(databaseAdapter.getAllScores(),this));
     }
 }

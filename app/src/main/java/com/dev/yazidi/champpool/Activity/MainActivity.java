@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.dev.yazidi.champpool.Adapter.PoolAdapter;
 import com.dev.yazidi.champpool.Database.DatabaseAdapter;
 import com.dev.yazidi.champpool.R;
 
@@ -52,13 +53,13 @@ public class MainActivity extends AppCompatActivity {
         gridViewHeader.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, lanes));
 
         gridViewContent = (GridView) findViewById(R.id.poolList);
-        gridViewContent.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, databaseAdapter.getPool()));
+        gridViewContent.setAdapter(new PoolAdapter(databaseAdapter.getPool(),this));
 
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        gridViewContent.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, databaseAdapter.getPool()));
+        gridViewContent.setAdapter(new PoolAdapter(databaseAdapter.getPool(),this));
     }
 }
