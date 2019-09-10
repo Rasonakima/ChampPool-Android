@@ -13,7 +13,6 @@ import com.dev.yazidi.champpool.R;
 import java.util.List;
 
 public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ScoreViewHolder> {
-    Context context;
     private List<Score> scores;
 
     public ScoreAdapter(List<Score> scores) {

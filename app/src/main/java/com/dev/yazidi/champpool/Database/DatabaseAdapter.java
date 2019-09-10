@@ -18,12 +18,18 @@ public class DatabaseAdapter {
         database = creator.getWritableDatabase();
     }
 
-    public void addScore(Score score) {
-        ContentValues values = new ContentValues();
-        values.put(DatabaseCreator.SCORE_KEY_CHAMPION, score.getChampion());
-        values.put(DatabaseCreator.SCORE_KEY_LANE, score.getLane());
-        values.put(DatabaseCreator.SCORE_KEY_SCORE, score.getScore());
-        database.insert(DatabaseCreator.SCORE_TABLE_NAME, null, values);
+    public String addScore(Score score) {
+        try {
+            ContentValues values = new ContentValues();
+            values.put(DatabaseCreator.SCORE_KEY_CHAMPION, score.getChampion());
+            values.put(DatabaseCreator.SCORE_KEY_LANE, score.getLane());
+            values.put(DatabaseCreator.SCORE_KEY_SCORE, score.getScore());
+            database.insert(DatabaseCreator.SCORE_TABLE_NAME, null, values);
+            return "Successfully added";
+        }
+        catch (Exception e){
+            return e.getLocalizedMessage();
+        }
     }
 
     public void updateScore(long id, Score score) {
