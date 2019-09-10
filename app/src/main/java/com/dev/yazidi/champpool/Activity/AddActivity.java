@@ -57,8 +57,9 @@ public class AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (champions.contains(autoCompleteTextView.getText().toString())) {
-                   String message = databaseAdapter.addScore(new Score(autoCompleteTextView.getText().toString(), spinner.getSelectedItem().toString(), (int) ratingBar.getRating()));
+                    String message = databaseAdapter.addScore(new Score(autoCompleteTextView.getText().toString(), spinner.getSelectedItem().toString(), (int) ratingBar.getRating()));
                     Toast.makeText(AddActivity.this, message, Toast.LENGTH_SHORT).show();
+                    finish();
                 } else {
                     Toast.makeText(AddActivity.this, "Champion not found", Toast.LENGTH_SHORT).show();
                 }

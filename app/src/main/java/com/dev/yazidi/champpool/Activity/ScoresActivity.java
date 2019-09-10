@@ -52,4 +52,10 @@ public class ScoresActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(new ScoreAdapter(databaseAdapter.getAllScores()));
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        recyclerView.setAdapter(new ScoreAdapter(databaseAdapter.getAllScores()));
+    }
 }

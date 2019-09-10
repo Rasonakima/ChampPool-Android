@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseAdapter databaseAdapter;
 
+    GridView gridViewContent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +51,14 @@ public class MainActivity extends AppCompatActivity {
         GridView gridViewHeader = (GridView) findViewById(R.id.poolListHeader);
         gridViewHeader.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, lanes));
 
-        GridView gridViewContent = (GridView) findViewById(R.id.poolList);
+        gridViewContent = (GridView) findViewById(R.id.poolList);
         gridViewContent.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, databaseAdapter.getPool()));
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        gridViewContent.setAdapter(new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, databaseAdapter.getPool()));
     }
 }
