@@ -66,7 +66,7 @@ public class DatabaseAdapter {
     public List<Score> getTop5ByLane(String lane) {
         List<Score> scores = new ArrayList<Score>();
         String[] strings = {DatabaseCreator.SCORE_KEY_ID, DatabaseCreator.SCORE_KEY_CHAMPION, DatabaseCreator.SCORE_KEY_LANE, DatabaseCreator.SCORE_KEY_SCORE};
-        Cursor cursor = database.query(DatabaseCreator.SCORE_TABLE_NAME, strings, DatabaseCreator.SCORE_KEY_LANE + " = '" + lane + "'", null, null, null, DatabaseCreator.SCORE_KEY_SCORE, "5");
+        Cursor cursor = database.query(DatabaseCreator.SCORE_TABLE_NAME, strings, DatabaseCreator.SCORE_KEY_LANE + " = '" + lane + "'", null, null, null, DatabaseCreator.SCORE_KEY_SCORE + " DESC", "5");
         while (cursor.moveToNext()) {
             scores.add(new Score(cursor.getLong(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3)));
         }
